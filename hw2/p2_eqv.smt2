@@ -4,7 +4,7 @@
 (declare-const r Bool)
 
 ; Defining the original formula phi.
-(define-const origina_formula Bool
+(define-const phi Bool
 (and
     (or q (not r))
     (or (not p) r)
@@ -15,7 +15,7 @@
 )
 
 ; Defining the new formula psi with the implied clauses added.
-(define-const new_formula Bool
+(define-const psi Bool
 (and
     (or q (not r))
     (or (not p) r)
@@ -30,11 +30,11 @@
 )
 
 ; Check if there is a valuation for {p, q, r} where
-; the original formula does not match the new_formula.
+; the phi does not match psi.
 ; If this is unsatisfiable, it means that the formulas
 ; are equivalent (as there are no valuations of {p, q, r}
 ; for which the formulas do not match).
-(assert (not (= origina_formula new_formula)))
+(assert (not (= phi psi)))
 
 ; Check satisfiability.
 (check-sat)
