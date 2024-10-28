@@ -1,4 +1,3 @@
-
 (assert 
     (forall ((x Real)) 
             (exists ((y Real)) 

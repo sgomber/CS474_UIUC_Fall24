@@ -1,4 +1,3 @@
-
 (assert 
     (forall ((x Real)) 
             (exists ((y Real)) 
@@ -7,4 +6,4 @@
     )
 )
 
-(apply qe)
+(check-sat)
