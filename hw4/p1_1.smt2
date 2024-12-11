@@ -27,32 +27,32 @@
 ;
 ; Instantiated Axiom 1 on ground terms.
 ;
-(assert (axiom1 e e c))
-(assert (axiom1 e e e))
-(assert (axiom1 e c c))
-(assert (axiom1 e c e))
-(assert (axiom1 c e c))
-(assert (axiom1 c e e))
-(assert (axiom1 c c c))
-(assert (axiom1 c c e))
+(assert (forall ((x U) (y U) (z U))
+  (=> (and (or (= x e) (= x c))
+           (or (= y e) (= y c))
+           (or (= z e) (= z c)))
+       (axiom1 x y z))))
 
 ;
 ; Instantiated Axiom 2 on ground terms.
 ;
-(assert (axiom2 e))
-(assert (axiom2 c))
+(assert (forall ((x U))
+  (=> (or (= x e) (= x c))
+      (axiom2 x))))
 
 ;
 ; Instantiated Axiom 3 on ground terms.
 ;
-(assert (axiom3 e))
-(assert (axiom3 c))
+(assert (forall ((x U))
+  (=> (or (= x e) (= x c))
+      (axiom3 x))))
 
 ;
 ; Instantiated \neg \varphi on ground terms
 ;
-(assert (neg_varphi e))
-(assert (neg_varphi c))
+(assert (forall ((x U))
+  (=> (or (= x e) (= x c))
+      (neg_varphi x))))
 
 ; Check satisfiability
 (check-sat)
